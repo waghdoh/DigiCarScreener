@@ -112,12 +112,7 @@ export default function HomepageRow(props) {
                 <Text className="text-black-900 dark:text-white-a700 whitespace-nowrap">
                   {formatDate(latestCaptureData?.DateTime)}
                 </Text>
-                <div className="tooltip-container">
-                  <GPSIcon />
-                  {/* <div className="tooltip-text">
-                    <span className="p-2">{"Visit Map"}</span>
-                  </div> */}
-                </div>
+                <GPSIcon />
               </div>
             ) : (
               "--"
