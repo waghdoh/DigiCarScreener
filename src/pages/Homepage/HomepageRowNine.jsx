@@ -97,9 +97,9 @@ export default function HomepageRowNine() {
       tableColumnHelper.accessor("DateTime", {
         cell: (info) => (
           <Text className="w-full flex justify-center align-middle leading-4 whitespace-nowrap ">
-            {/* {formatDate(info.getValue())} */}
+            {formatDate(info.getValue())}
             <br />
-            {/* {formatGPSLocation(info?.row?.original?.GPSLocation)} */}
+            {formatGPSLocation(info?.row?.original?.GPSLocation)}
             <div className="flex whitespace-nowrap items-end text-xs ml-[-42px]">
               <div className="tooltip-container">
                 <svg
@@ -123,6 +123,7 @@ export default function HomepageRowNine() {
                   <span className="m-2">Visit Map</span>
                 </div>
               </div>
+              <img src="images/gps.svg" />
             </div>
           </Text>
         ),
