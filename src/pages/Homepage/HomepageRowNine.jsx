@@ -1,5 +1,5 @@
 import { CAMERA_LIST } from "MockData/carsData";
-import { Text, Img, Button, Heading, SelectBox } from "../../components";
+import { Text, Img, Button, Heading, SelectBox, Input } from "../../components";
 import { ReactTable } from "../../components/ReactTable";
 import { createColumnHelper } from "@tanstack/react-table";
 import React from "react";
@@ -148,18 +148,18 @@ export default function HomepageRowNine() {
             />
             <div className="relative h-[36px] w-[200px] content-center md:h-auto">
               <div className="mx-auto flex flex-1 justify-center gap-1 px-1">
-                <div className="h-[36px] flex-1 border border-solid border-gray-300_01 bg-white-a700 dark:bg-dark-700 dark:border-dark-600" />
+                <div className="h-[36px] flex-1 border border-solid border-gray-300_01 bg-white-a700 dark:bg-dark-700 dark:border-dark-600">
+                  <Text
+                    as="p"
+                    className="!font-lato1 !text-blue_gray-400 dark:!text-white-a700 ml-3 mt-2"
+                  >
+                    Enter license plate{" "}
+                  </Text>
+                </div>
+
                 <Button className="flex h-[36px] w-[36px] items-center justify-center border border-solid border-black-900 dark:border-dark-600 px-1.5 bg-white-a700 dark:bg-dark-700">
                   <Img src="images/img_icon_export.svg" />
                 </Button>
-              </div>
-              <div className="absolute bottom-0 left-0 right-10 top-80 m-auto flex h-max flex-1 px-3.5">
-                <Text
-                  as="p"
-                  className="!font-lato1 !text-blue_gray-400 dark:!text-white-a700"
-                >
-                  Enter license plate{" "}
-                </Text>
               </div>
             </div>
           </div>

@@ -105,7 +105,7 @@ export default function HomepagePage() {
                 <Img
                   src="images/img_conf.svg"
                   alt="Conf"
-                  className="h-[36px] w-[36px] sm:w-full"
+                  className="h-[46px] w-[36px] sm:w-full"
                 />
               </div>
               <div className=" h-[230px] content-center self-stretch md:h-auto">

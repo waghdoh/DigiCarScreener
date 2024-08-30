@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Img, Slider } from "../../components";
+import { Slider } from "../../components";
 
-export default function CaptureSlider() {
+export default function CaptureSlider({ dataArray }) {
   const [sliderState, setSliderState] = React.useState(0);
   const sliderRef = React.useRef(null);
 
@@ -20,13 +20,17 @@ export default function CaptureSlider() {
             setSliderState(e?.item);
           }}
           ref={sliderRef}
-          items={[...Array(3)].map(() => (
-            <React.Fragment key={Math.random()}>
-              <div className="flex h-[164px] ml-[50px] w-[90%] m-auto items-center bg-[url(/images/img_group_115.png)] bg-cover bg-no-repeat p-1.5 md:h-auto">
-                <div className="flex w-full flex-col items-end gap-[26px]"></div>
+          items={dataArray.map((carImage, index) => {
+            console.log(carImage);
+            return (
+              <div
+                key={index}
+                className={`flex h-[164px] w-[90%] m-auto items-center bg-[url(${carImage})] bg-cover bg-no-repeat`}
+              >
+                {/* <img src="carImage" alt="" /> */}
               </div>
-            </React.Fragment>
-          ))}
+            );
+          })}
         />
       </div>
     </div>

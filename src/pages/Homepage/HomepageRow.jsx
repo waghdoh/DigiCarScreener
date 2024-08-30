@@ -110,10 +110,9 @@ export default function HomepageRow(props) {
           </div>
         </div>
         {latestCaptureData ? (
-          <CaptureSlider />
+          <CaptureSlider dataArray={latestCaptureData.Images} />
         ) : (
           <div className="flex items-center justify-center dark:text-white-a700">
-            {" "}
             No data Captured! Start Patroling.
           </div>
         )}

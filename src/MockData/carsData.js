@@ -158,8 +158,8 @@ export const carData = [
         "GPSLocation": "27.994402, -81.760254",
         "AlertLevel": "None",
         "Images": [
-            "images/img_image.png",
-            "images/img_image.png",
+            "/images/img_group_115.png",
+            "/images/img_group_115.png",
         ]
     }
 ]
