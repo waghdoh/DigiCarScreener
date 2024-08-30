@@ -59,7 +59,7 @@ const Slider = React.forwardRef(
           renderPrevButton={(props) => <CustomPrevButton {...props} />}
           renderNextButton={(props) => <CustomNextButton {...props} />}
           items={slideItems}
-          infinite
+          // infinite
           ref={ref}
           {...props}
           touchTracking

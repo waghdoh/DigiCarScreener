@@ -9,8 +9,6 @@ export default function CaptureSlider() {
     <div className="flex items-center justify-center gap-1 md:flex-col">
       <div className="relative mx-auto flex w-full md:self-stretch">
         <Slider
-          // autoPlay
-          // autoPlayInterval={2000}
           responsive={{
             0: { items: 1 },
             551: { items: 1 },
@@ -31,14 +29,6 @@ export default function CaptureSlider() {
           ))}
         />
       </div>
-      <Button
-        onClick={() => {
-          sliderRef?.current?.slideNext();
-        }}
-        className="flex h-[24px] w-[24px] items-center justify-center"
-      >
-        <Img src="images/img_arrow_right.svg" />
-      </Button>
     </div>
   );
 }
