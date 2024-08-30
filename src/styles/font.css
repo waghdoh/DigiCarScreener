@@ -1,0 +1,14 @@
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/fonts/LatoBold.ttf");
+  font-family: "Lato";
+  font-weight: 700;
+}
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/fonts/LatoRegular.ttf");
+  font-family: "Lato";
+  font-weight: 400;
+}
