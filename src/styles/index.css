@@ -53,3 +53,55 @@ table {
     right: 0;
     top: 50%;
 }
+
+/* styles.css */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  /* width: 120px; */
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  
+  /* Positioning */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Adjust based on your needs */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* Tooltip Arrow */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hover-svg {
+  fill: red;
+  transition: fill 0.3s ease;
+}
+
+.tooltip-container:hover .hover-svg {
+  fill: blue;
+}

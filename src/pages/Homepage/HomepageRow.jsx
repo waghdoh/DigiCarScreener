@@ -1,4 +1,4 @@
-import { formatDate } from "util/NumberFormatters";
+import { formatDate, formatGPSLocation } from "util/NumberFormatters";
 import { Button, Img, Slider, Text, Heading } from "../../components";
 import React, { useState } from "react";
 
@@ -13,18 +13,18 @@ export default function HomepageRow(props) {
   };
   return (
     <div>
-      <div className="flex flex-col gap-1.5 border border-solid border-gray-300_01 bg-white-a700 p-2.5">
+      <div className="flex flex-col gap-1.5 border border-solid border-gray-300_01 bg-white-a700 p-2.5 dark:bg-dark-700 dark:border-dark-600">
         <div className="flex items-center justify-between gap-5">
           <Heading
             size="headinglg"
             as="h1"
-            className="mb-1 self-end !font-lato1"
+            className="mb-1 self-end !font-lato1 text-black-900 dark:text-white-a700"
           >
             Latest Capture
           </Heading>
           <button
             onClick={togglePatrol}
-            className="flex items-center gap-2.5 border border-solid border-black-900 p-2"
+            className="flex items-center gap-2.5 border border-solid border-black-900 dark:border-dark-600 p-2 bg-white-a700 dark:bg-dark-700"
           >
             <img
               src={
@@ -35,22 +35,22 @@ export default function HomepageRow(props) {
               alt={isPatrolStarted ? "Iconpause" : "Iconplay"}
               className="h-[24px] w-[24px]"
             />
-            <h2 className="!font-lato1 uppercase tracking-[-0.27px]">
+            <h2 className="!font-lato1 uppercase tracking-[-0.27px] text-black-900 dark:text-white-a700">
               {isPatrolStarted ? "Stop Patrol" : "Start Patrol"}
             </h2>
           </button>
         </div>
         <div className="flex justify-between gap-4 bg-gradient px-5 py-1 md:flex-col">
-          <div className="flex flex-col items-start gap-1 ">
+          <div className="flex flex-col items-start gap-1">
             <Heading
               as="p"
-              className="font-bold !dark:text-dark-base  text-black-900 whitespace-nowrap"
+              className="font-bold text-black-900 dark:text-white-a700 whitespace-nowrap"
             >
               Camera ID
             </Heading>
             <Text
               as="p"
-              className="!dark:text-dark-base  text-black-900 whitespace-nowrap"
+              className="text-black-900 dark:text-white-a700 whitespace-nowrap"
             >
               {latestCaptureData?.CameraID || "--"}
             </Text>
@@ -58,13 +58,13 @@ export default function HomepageRow(props) {
           <div className="flex flex-col items-start gap-1">
             <Heading
               as="p"
-              className="font-bold !dark:text-dark-base  text-black-900 whitespace-nowrap"
+              className="font-bold text-black-900 dark:text-white-a700 whitespace-nowrap"
             >
               License No/State
             </Heading>
             <Text
               as="p"
-              className="!dark:text-dark-base  text-black-900 whitespace-nowrap"
+              className="text-black-900 dark:text-white-a700 whitespace-nowrap"
             >
               {latestCaptureData?.LicensePlate && latestCaptureData?.State
                 ? latestCaptureData?.LicensePlate +
@@ -73,30 +73,16 @@ export default function HomepageRow(props) {
                 : "--"}
             </Text>
           </div>
-          {/* <div className="flex flex-col items-start gap-1">
-            <Heading
-              as="p"
-              className="font-bold   !dark:text-dark-base  text-black-900 whitespace-nowrap"
-            >
-              State
-            </Heading>
-            <Text
-              as="p"
-              className="!dark:text-dark-base  text-black-900 whitespace-nowrap"
-            >
-              {latestCaptureData?.State || "--"}
-            </Text>
-          </div> */}
           <div className="flex flex-col items-start gap-1 md:self-stretch">
             <Heading
               as="p"
-              className="font-bold !dark:text-dark-base  text-black-900 whitespace-nowrap"
+              className="font-bold text-black-900 dark:text-white-a700 whitespace-nowrap"
             >
               Make/Model/Color
             </Heading>
             <Text
               as="p"
-              className="!dark:text-dark-base  text-black-900 whitespace-nowrap"
+              className="text-black-900 dark:text-white-a700 whitespace-nowrap"
             >
               {latestCaptureData?.CarModel &&
               latestCaptureData?.CarMake &&
@@ -109,36 +95,22 @@ export default function HomepageRow(props) {
                 : "--"}
             </Text>
           </div>
-          {/* <div className="flex flex-col items-start gap-1">
-            <Text
-              as="p"
-              className="!font-medium !dark:text-dark-base  text-black-900 whitespace-nowrap"
-            >
-              Lat/Long
-            </Text>
-            <Text
-              as="p"
-              className="!dark:text-dark-base  text-black-900 whitespace-nowrap"
-            >
-              {latestCaptureData?.GPSLocation}
-            </Text>
-          </div> */}
           <div className="flex flex-col items-start gap-1">
             <Heading
               as="p"
-              className="font-bold !dark:text-dark-base text-black-900 whitespace-nowrap"
+              className="font-bold text-black-900 dark:text-white-a700 whitespace-nowrap"
             >
               Date & Time/GPS
             </Heading>
             <div>
               <Text
                 as="p"
-                className="!dark:text-dark-base  text-black-900 whitespace-nowrap"
+                className="text-black-900 dark:text-white-a700 whitespace-nowrap"
               >
                 {formatDate(latestCaptureData?.DateTime) || "--"}
               </Text>
             </div>
-            <div>
+            <div className="tooltip-container">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -155,6 +127,11 @@ export default function HomepageRow(props) {
                   <path d="M148.5,59.183c-28.273,0-51.274,23.154-51.274,51.614c0,28.461,23.001,51.614,51.274,51.614   c28.273,0,51.274-23.153,51.274-51.614C199.774,82.337,176.773,59.183,148.5,59.183z M148.5,141.901   c-16.964,0-30.765-13.953-30.765-31.104c0-17.15,13.801-31.104,30.765-31.104c16.964,0,30.765,13.953,30.765,31.104   C179.265,127.948,165.464,141.901,148.5,141.901z" />
                 </g>
               </svg>
+              <div className="tooltip-text">
+                <span className="p-2">
+                  {formatGPSLocation(latestCaptureData?.GPSLocation) || "--"}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -176,8 +153,8 @@ export default function HomepageRow(props) {
               ref={sliderRef}
               items={[...Array(3)].map(() => (
                 <React.Fragment key={Math.random()}>
-                  <div className="flex h-[164px] ml-[50px]  w-[90%] m-auto items-center bg-[url(/images/img_group_115.png)] bg-cover bg-no-repeat p-1.5 md:h-auto">
-                    <div className="flex  w-full flex-col items-end gap-[26px]"></div>
+                  <div className="flex h-[164px] ml-[50px] w-[90%] m-auto items-center bg-[url(/images/img_group_115.png)] bg-cover bg-no-repeat p-1.5 md:h-auto">
+                    <div className="flex w-full flex-col items-end gap-[26px]"></div>
                   </div>
                 </React.Fragment>
               ))}
