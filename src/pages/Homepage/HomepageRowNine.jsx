@@ -1,12 +1,16 @@
-import { CAMERA_LIST, carData } from "MockData/carsData";
+import { CAMERA_LIST } from "MockData/carsData";
 import { Text, Img, Button, Heading, SelectBox } from "../../components";
 import { ReactTable } from "../../components/ReactTable";
 import { createColumnHelper } from "@tanstack/react-table";
 import React from "react";
 import { formatDate, formatGPSLocation } from "util/NumberFormatters";
-import Table from "./Table";
+import { useSelector } from "react-redux";
 
 export default function HomepageRowNine() {
+  const carData = useSelector((state) => {
+    return state.cars.carData;
+  });
+
   const tableColumns = React.useMemo(() => {
     const tableColumnHelper = createColumnHelper();
     return [

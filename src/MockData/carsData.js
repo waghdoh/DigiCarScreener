@@ -1,4 +1,3 @@
-// export const carData = []
 export const carData = [
     // {
     //     "CameraID": "Front#6528L",

@@ -1,14 +1,18 @@
 import { formatDate, formatGPSLocation } from "util/NumberFormatters";
-import { Button, Img, Slider, Text, Heading } from "../../components";
 import React, { useState } from "react";
+import { Button, Img, Slider, Text, Heading } from "../../components";
+import { useDispatch } from "react-redux";
+import { stopPatrol, startPatrol } from "store";
 
 export default function HomepageRow(props) {
   const [sliderState, setSliderState] = React.useState(0);
   const sliderRef = React.useRef(null);
   const latestCaptureData = props.carData;
   const [isPatrolStarted, setIsPatrolStarted] = useState(false);
+  const dispatch = useDispatch();
 
   const togglePatrol = () => {
+    dispatch(isPatrolStarted ? stopPatrol() : startPatrol());
     setIsPatrolStarted(!isPatrolStarted);
   };
   return (
@@ -24,13 +28,13 @@ export default function HomepageRow(props) {
           </Heading>
           <button
             onClick={togglePatrol}
-            className="flex items-center gap-2.5 border border-solid border-black-900 dark:border-dark-600 p-2 bg-white-a700 dark:bg-dark-700"
+            className="flex items-center gap-2.5 border border-solid border-black-900 p-2 w-[160px] dark:border-dark-600 p-2 bg-white-a700 dark:bg-dark-700"
           >
             <img
               src={
                 isPatrolStarted
                   ? "images/img_icon_pause.svg"
-                  : "images/img_icon_play.svg"
+                  : "images/play.png"
               }
               alt={isPatrolStarted ? "Iconpause" : "Iconplay"}
               className="h-[24px] w-[24px]"
@@ -107,10 +111,12 @@ export default function HomepageRow(props) {
                 as="p"
                 className="text-black-900 dark:text-white-a700 whitespace-nowrap"
               >
-                {formatDate(latestCaptureData?.DateTime) || "--"}
+                {latestCaptureData?.DateTime
+                  ? formatDate(latestCaptureData?.DateTime)
+                  : "--"}
               </Text>
             </div>
-            <div className="tooltip-container">
+            {latestCaptureData && (<div className="tooltip-container">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -132,7 +138,7 @@ export default function HomepageRow(props) {
                   {formatGPSLocation(latestCaptureData?.GPSLocation) || "--"}
                 </span>
               </div>
-            </div>
+            </div>)}
           </div>
         </div>
         <div className="flex items-center justify-center gap-1 md:flex-col">
