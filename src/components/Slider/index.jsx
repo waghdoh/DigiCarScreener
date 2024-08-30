@@ -7,7 +7,7 @@ const CustomPrevButton = ({ onClick }) => (
     onClick={onClick}
     className="absolute top-1/2 left-0 transform -translate-y-1/2 text-white z-10"
   >
-    &lt; {/* You can replace this with an icon */}
+    <img src="images/arrow-left.svg" />
   </button>
 );
 
@@ -16,7 +16,7 @@ const CustomNextButton = ({ onClick }) => (
     onClick={onClick}
     className="absolute top-1/2 right-0 transform -translate-y-1/2 text-white  z-10"
   >
-    &gt; {/* You can replace this with an icon */}
+    <img src="images/arrow-right.svg" />
   </button>
 );
 const Slider = React.forwardRef(
@@ -56,12 +56,6 @@ const Slider = React.forwardRef(
     return (
       <>
         <AliceCarousel
-          // renderPrevButton={() => {
-          //   return <p className="p-4 absolute left-0 top-0">Previous Item</p>;
-          // }}
-          // renderNextButton={() => {
-          //   return <p className="p-4 absolute right-0 top-0">Next Item</p>;
-          // }}
           renderPrevButton={(props) => <CustomPrevButton {...props} />}
           renderNextButton={(props) => <CustomNextButton {...props} />}
           items={slideItems}
@@ -70,7 +64,6 @@ const Slider = React.forwardRef(
           {...props}
           touchTracking
           mouseTracking
-          // disableButtonsControls
         />
       </>
     );

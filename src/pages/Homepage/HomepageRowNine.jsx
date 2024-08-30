@@ -153,7 +153,7 @@ export default function HomepageRowNine() {
                   <Img src="images/img_icon_export.svg" />
                 </Button>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 top-0 m-auto flex h-max flex-1 px-3.5">
+              <div className="absolute bottom-0 left-0 right-10 top-80 m-auto flex h-max flex-1 px-3.5">
                 <Text
                   as="p"
                   className="!font-lato1 !text-blue_gray-400 dark:!text-white-a700"
