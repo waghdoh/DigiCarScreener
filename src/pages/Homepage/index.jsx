@@ -104,7 +104,7 @@ export default function HomepagePage() {
                   className="h-[36px] w-[36px] sm:w-full"
                 />
               </div>
-              <div className="relative h-[230px] content-center self-stretch md:h-auto">
+              <div className=" h-[230px] content-center self-stretch md:h-auto">
                 <Img
                   src="images/img_image_178x404.png"
                   alt="Image"
@@ -115,7 +115,7 @@ export default function HomepagePage() {
                     <Img src="images/img_icon_hand.svg" />
                   </Button>
                   <div className="flex flex-col items-end self-stretch">
-                    <div className="flex w-[8%] flex-col items-center gap-1.5 border-[0.78px] border-solid border-black-900 dark:border-dark-700 bg-white-a700 dark:bg-dark-700 py-1.5 md:w-full">
+                    <div className="flex w-[35px] flex-col items-center gap-1.5 border-[0.78px] border-solid border-black-900 dark:border-dark-700 bg-white-a700 dark:bg-dark-700 py-1.5 md:w-full">
                       <Img
                         src="images/img_plus.svg"
                         alt="Plus"
