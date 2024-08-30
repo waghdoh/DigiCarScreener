@@ -102,12 +102,7 @@ export default function HomepageRowNine() {
             <br />
             {formatGPSLocation(info?.row?.original?.GPSLocation)}
             <div className="flex whitespace-nowrap items-end text-xs ml-[-42px]">
-              <div className="tooltip-container">
-                <GPSIcon />
-                <div className="tooltip-text">
-                  <span className="m-2">Visit Map</span>
-                </div>
-              </div>
+              <GPSIcon />
             </div>
           </Text>
         ),
