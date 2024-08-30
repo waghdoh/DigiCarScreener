@@ -1,3 +1,4 @@
+import { formatDate } from "util/NumberFormatters";
 import { Text, Img } from "./..";
 import React from "react";
 
@@ -27,7 +28,7 @@ export default function UserProfile({ ...props }) {
               as="p"
               className="!font-lato1 tracking-[0.13px]"
             >
-              {`${props.CameraID} | ${props.DateTime}`}
+              {`${props.CameraID} | ${formatDate(props.DateTime)}`}
             </Text>
           </div>
         </div>

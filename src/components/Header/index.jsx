@@ -25,7 +25,7 @@ export default function Header({ ...props }) {
             </Text>
             <Switch value={false} />
           </div>
-          <div className="flex flex-1 items-start justify-center">
+          <div className="flex flex-1 items-center justify-center">
             <div className="flex flex-1 items-center justify-center gap-2.5">
               <a href="#">
                 <Img

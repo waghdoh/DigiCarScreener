@@ -25,7 +25,7 @@ export default function CaptureSlider({ dataArray }) {
             return (
               <div
                 key={index}
-                className={`flex h-[164px] w-[90%] m-auto items-center bg-[url(${carImage})] bg-cover bg-no-repeat`}
+                className={`flex h-[20vh] w-[90%] m-auto items-center bg-[url(${carImage})] bg-cover bg-no-repeat`}
               >
                 {/* <img src="carImage" alt="" /> */}
               </div>
