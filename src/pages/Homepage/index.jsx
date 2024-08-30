@@ -59,7 +59,7 @@ export default function HomepagePage() {
             <HomepageRowNine />
           </div>
           <div className="flex w-[50%] flex-col gap-1 md:w-full">
-            <div className="flex flex-col items-start gap-3 border border-solid border-gray-300_01 bg-white-a700 dark:bg-dark-800 p-2.5">
+            <div className="flex flex-col items-start gap-3 border border-solid border-gray-300_01 bg-white-a700 dark:bg-dark-700 p-2.5">
               <Heading size="headinglg" as="h2" className="mt-2 !font-lato1">
                 Live View - Camera {selectedChipOptions} (
                 {ViewDirection[selectedChipOptions - 1]}#6528)

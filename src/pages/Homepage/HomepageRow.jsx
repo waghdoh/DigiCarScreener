@@ -109,7 +109,14 @@ export default function HomepageRow(props) {
             )}
           </div>
         </div>
-        <CaptureSlider />
+        {latestCaptureData ? (
+          <CaptureSlider />
+        ) : (
+          <div className="flex items-center justify-center dark:text-white-a700">
+            {" "}
+            No data Captured! Start Patroling.
+          </div>
+        )}
       </div>
     </div>
   );
