@@ -1,15 +1,19 @@
 import React, { Suspense } from "react";
 import { Helmet } from "react-helmet";
-import { Button, Img, Text, Heading, ChipView } from "../../components";
+import { Button, Img, Heading, ChipView } from "../../components";
 import Header from "../../components/Header";
 import UserProfile from "../../components/UserProfile";
 import HomepageRow from "./HomepageRow";
 import HomepageRowNine from "./HomepageRowNine";
-import { CAMERA_LIST, carData } from "MockData/carsData";
+import { CAMERA_LIST } from "MockData/carsData";
+import { useSelector } from "react-redux";
 
 const ViewDirection = ["Front", "Back", "Right", "Left"];
 
 export default function HomepagePage() {
+  const carData = useSelector((state) => {
+    return state.cars.carData;
+  });
   const newCarData = [...carData];
   const [chipOptions, setChipOptions] = React.useState(() => CAMERA_LIST);
   const [selectedChipOptions, setSelectedChipOptions] = React.useState([1]);

@@ -1,12 +1,16 @@
-import { CAMERA_LIST, carData } from "MockData/carsData";
+import { CAMERA_LIST } from "MockData/carsData";
 import { Text, Img, Button, Heading, SelectBox } from "../../components";
 import { ReactTable } from "../../components/ReactTable";
 import { createColumnHelper } from "@tanstack/react-table";
 import React from "react";
 import { formatDate, formatGPSLocation } from "util/NumberFormatters";
-import Table from "./Table";
+import { useSelector } from "react-redux";
 
 export default function HomepageRowNine() {
+  const carData = useSelector((state) => {
+    return state.cars.carData;
+  });
+
   const tableColumns = React.useMemo(() => {
     const tableColumnHelper = createColumnHelper();
     return [
@@ -99,14 +103,14 @@ export default function HomepageRowNine() {
             <div className="flex whitespace-nowrap items-end text-xs ml-[-42px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
                 fill="red"
                 height="15px"
                 width="20px"
                 version="1.1"
                 id="Capa_1"
                 viewBox="0 0 297 297"
-                xml:space="preserve"
+                xmlSpace="preserve"
               >
                 <g>
                   <path d="M148.5,0C87.43,0,37.747,49.703,37.747,110.797c0,91.026,99.729,179.905,103.976,183.645   c1.936,1.705,4.356,2.559,6.777,2.559c2.421,0,4.841-0.853,6.778-2.559c4.245-3.739,103.975-92.618,103.975-183.645   C259.253,49.703,209.57,0,148.5,0z M148.5,272.689c-22.049-21.366-90.243-93.029-90.243-161.892   c0-49.784,40.483-90.287,90.243-90.287s90.243,40.503,90.243,90.287C238.743,179.659,170.549,251.322,148.5,272.689z" />
