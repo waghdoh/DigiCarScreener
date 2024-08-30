@@ -157,7 +157,7 @@ export default function HomepageRowNine() {
                   </Text>
                 </div>
 
-                <Button className="flex h-[36px] w-[36px] items-center justify-center border border-solid border-black-900 dark:border-dark-600 px-1.5 bg-white-a700 dark:bg-dark-700">
+                <Button className="flex h-[36px] w-[36px] items-center justify-center border border-solid border-black-900 dark:border-dark-600 px-1.5 bg-white-a700 ">
                   <Img src="images/img_icon_export.svg" />
                 </Button>
               </div>

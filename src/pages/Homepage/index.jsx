@@ -148,7 +148,7 @@ export default function HomepagePage() {
                 <Heading
                   size="headingxs"
                   as="h4"
-                  className="ml-1 flex h-[20px] w-[20px] items-center justify-center self-start rounded-[10px] bg-black-900  text-center !font-lato1 tracking-[0.13px] !text-white-a700 dark:bg-dark-700"
+                  className="ml-1 flex h-[20px] w-[20px] items-center justify-center self-start rounded-[10px] bg-black-900  text-center !font-lato1 tracking-[0.13px] text-white-a700 dark:bg-white-a700 dark:text-black-900"
                 >
                   {carData.length &&
                     carData.filter((car) => car.AlertLevel !== "None").length}
@@ -168,18 +168,21 @@ export default function HomepagePage() {
                     </Suspense>
                   </div>
                 </div>
-                <Button
-                  leftIcon={
-                    <Img
-                      src="images/img_fi10273571.svg"
-                      alt="Fi 10273571"
-                      className="h-[32px] w-[32px]"
-                    />
-                  }
-                  className="fixed bottom-4 right-4 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-solid border-black-900 dark:border-dark-700 bg-gradient text-[14px] text-black-900 dark:text-white"
-                >
-                  {/* You can remove or keep the left icon depending on the design */}
-                </Button>
+                <div className="tooltip-container">
+                  <Button
+                    leftIcon={
+                      <Img
+                        src="images/img_fi10273571.svg"
+                        alt="Fi 10273571"
+                        className="h-[32px] w-[32px]"
+                      />
+                    }
+                    className="fixed bottom-4 right-4 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-solid border-black-900 dark:border-dark-700 bg-gradient text-[14px] text-black-900 dark:text-white hover-svg"
+                  >
+                    {/* You can remove or keep the left icon depending on the design */}
+                  </Button>
+                  <div className="tooltip-text">Ask Me!</div>
+                </div>
               </div>
             </div>
           </div>
