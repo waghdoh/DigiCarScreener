@@ -115,11 +115,11 @@ export default function HomepagePage() {
                   className="mx-auto h-[230px] w-full flex-1 object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 top-0 mx-1 my-auto flex h-max flex-1 flex-col items-end gap-[60px] md:mx-0 sm:gap-[30px]">
-                  <Button className="flex h-[32px] w-[32px] items-center justify-center border border-solid border-black-900 bg-white-a700 dark:bg-dark-700 px-1">
+                  <Button className="flex h-[32px] w-[32px] items-center justify-center border border-solid border-black-900 bg-white-a700  px-1">
                     <Img src="images/img_icon_hand.svg" />
                   </Button>
                   <div className="flex flex-col items-end self-stretch">
-                    <div className="flex w-[35px] flex-col items-center gap-1.5 border-[0.78px] border-solid border-black-900 dark:border-dark-700 bg-white-a700 dark:bg-dark-700 py-1.5 md:w-full">
+                    <div className="flex w-[35px] flex-col items-center gap-1.5 border-[0.78px] border-solid border-black-900 dark:border-dark-700 bg-white-a700  py-1.5 md:w-full">
                       <Img
                         src="images/img_plus.svg"
                         alt="Plus"
@@ -148,7 +148,7 @@ export default function HomepagePage() {
                 <Heading
                   size="headingxs"
                   as="h4"
-                  className="ml-1 flex h-[20px] w-[20px] items-center justify-center self-start rounded-[10px] bg-black-900 text-center !font-lato1 tracking-[0.13px] !text-white-a700 dark:bg-dark-700"
+                  className="ml-1 flex h-[20px] w-[20px] items-center justify-center self-start rounded-[10px] bg-black-900  text-center !font-lato1 tracking-[0.13px] !text-white-a700 dark:bg-dark-700"
                 >
                   {carData.length &&
                     carData.filter((car) => car.AlertLevel !== "None").length}
