@@ -19,7 +19,7 @@ const Heading = ({
 
   return (
     <Component
-      className={`dark:text-dark-base  text-black-900 font-lato ${className} ${sizes[size]}`}
+      className={`  text-black-900 font-lato ${className} ${sizes[size]}`}
       {...restProps}
     >
       {children}

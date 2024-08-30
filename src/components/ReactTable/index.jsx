@@ -57,7 +57,10 @@ const ReactTable = ({
         <tbody {...bodyProps}>
           {table.getRowModel().rows.length === 0 ? (
             <tr>
-              <td colSpan={columns.length} className="text-center py-4">
+              <td
+                colSpan={columns.length}
+                className="text-center py-4 dark:text-white-a700"
+              >
                 {noDataText}
               </td>
             </tr>

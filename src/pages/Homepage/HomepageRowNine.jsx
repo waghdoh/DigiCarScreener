@@ -60,7 +60,7 @@ export default function HomepageRowNine() {
 
         header: (info) => (
           <div className="flex">
-            <Button className="flex h-[44px] w-fill-available flex-row items-center justify-center border-r border-solid border-gray-300_01 bg-gray-100 px-[7px] text-center text-[16px] font-semibold dark:text-dark-base  text-black-900">
+            <Button className="flex h-[44px] w-fill-available flex-row items-center justify-center border-r border-solid border-gray-300_01 bg-gray-100 px-[7px] text-center text-[16px] font-semibold text-black-900">
               License/State
             </Button>
           </div>

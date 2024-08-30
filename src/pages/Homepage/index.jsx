@@ -134,7 +134,7 @@ export default function HomepagePage() {
             </div>
             <div className="flex flex-col gap-4 border border-solid border-gray-300_01 dark:border-dark-600 bg-white-a700 dark:bg-dark-700 py-1 h-[42vh]">
               <div className="mx-1 mt-3 flex flex-wrap items-center md:mx-0">
-                <Heading size="headinglg" as="h3" className="!font-lato1">
+                <Heading size="headinglg" as="h3" className="!font-lato1 dark:text-white-a700">
                   Alarms & Notifications
                 </Heading>
                 <Heading
@@ -142,7 +142,8 @@ export default function HomepagePage() {
                   as="h4"
                   className="ml-1 flex h-[20px] w-[20px] items-center justify-center self-start rounded-[10px] bg-black-900 text-center !font-lato1 tracking-[0.13px] !text-white-a700 dark:bg-dark-800"
                 >
-                  {newCarData.length}
+                  {carData.length &&
+                    carData.filter((car) => car.AlertLevel !== "None").length}
                 </Heading>
               </div>
               <div className="ml-1 flex flex-col items-end gap-1 md:ml-0">

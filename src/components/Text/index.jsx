@@ -16,7 +16,7 @@ const Text = ({
 
   return (
     <Component
-      className={`dark:text-dark-base  text-gray-800 font-lato ${className} ${sizes[size]}`}
+      className={`dark:text-dark-base text-gray-800 font-lato ${className} ${sizes[size]}`}
       {...restProps}
     >
       {children}

@@ -48,28 +48,22 @@ export default function HomepageRow(props) {
           <div className="flex flex-col items-start gap-1">
             <Heading
               as="p"
-              className="font-bold text-black-900 dark:text-white-a700 whitespace-nowrap"
+              className="font-bold text-black-900 whitespace-nowrap"
             >
               Camera ID
             </Heading>
-            <Text
-              as="p"
-              className="text-black-900 dark:text-white-a700 whitespace-nowrap"
-            >
+            <Text as="p" className="text-black-900   whitespace-nowrap">
               {latestCaptureData?.CameraID || "--"}
             </Text>
           </div>
           <div className="flex flex-col items-start gap-1">
             <Heading
               as="p"
-              className="font-bold text-black-900 dark:text-white-a700 whitespace-nowrap"
+              className="font-bold text-black-900  whitespace-nowrap"
             >
               License No/State
             </Heading>
-            <Text
-              as="p"
-              className="text-black-900 dark:text-white-a700 whitespace-nowrap"
-            >
+            <Text as="p" className="text-black-900  whitespace-nowrap">
               {latestCaptureData?.LicensePlate && latestCaptureData?.State
                 ? latestCaptureData?.LicensePlate +
                   "/" +
@@ -80,14 +74,11 @@ export default function HomepageRow(props) {
           <div className="flex flex-col items-start gap-1 md:self-stretch">
             <Heading
               as="p"
-              className="font-bold text-black-900 dark:text-white-a700 whitespace-nowrap"
+              className="font-bold text-black-900  whitespace-nowrap"
             >
               Make/Model/Color
             </Heading>
-            <Text
-              as="p"
-              className="text-black-900 dark:text-white-a700 whitespace-nowrap"
-            >
+            <Text as="p" className="text-black-900  whitespace-nowrap">
               {latestCaptureData?.CarModel &&
               latestCaptureData?.CarMake &&
               latestCaptureData?.CarColor
@@ -102,13 +93,13 @@ export default function HomepageRow(props) {
           <div className="flex flex-col items-start gap-1">
             <Heading
               as="p"
-              className="font-bold text-black-900 dark:text-white-a700 whitespace-nowrap"
+              className="font-bold text-black-900  whitespace-nowrap"
             >
               Date & Time/GPS
             </Heading>
             {latestCaptureData ? (
               <div className="flex">
-                <Text className="text-black-900 dark:text-white-a700 whitespace-nowrap">
+                <Text className="text-black-900  whitespace-nowrap">
                   {formatDate(latestCaptureData?.DateTime)}
                 </Text>
                 <GPSIcon />
