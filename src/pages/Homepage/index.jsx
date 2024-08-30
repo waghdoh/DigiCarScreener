@@ -60,7 +60,11 @@ export default function HomepagePage() {
           </div>
           <div className="flex w-[50%] flex-col gap-1 md:w-full">
             <div className="flex flex-col items-start gap-3 border border-solid border-gray-300_01 bg-white-a700 dark:bg-dark-700 p-2.5">
-              <Heading size="headinglg" as="h2" className="mt-2 !font-lato1">
+              <Heading
+                size="headinglg"
+                as="h2"
+                className="mt-2 !font-lato1 dark:text-white-a700"
+              >
                 Live View - Camera {selectedChipOptions} (
                 {ViewDirection[selectedChipOptions - 1]}#6528)
               </Heading>
@@ -70,7 +74,7 @@ export default function HomepagePage() {
                   setOptions={setChipOptions}
                   values={selectedChipOptions}
                   setValues={setSelectedChipOptions}
-                  className="flex flex-1 flex-wrap gap-y-2 gap-x-2 sm:self-stretch justify-evenly"
+                  className={`flex flex-1 flex-wrap gap-y-2 gap-x-2 sm:self-stretch justify-evenly `}
                 >
                   {(option) => (
                     <React.Fragment key={option.index}>
@@ -87,7 +91,7 @@ export default function HomepagePage() {
                       ) : (
                         <div
                           onClick={option.toggle}
-                          className="flex items-center cursor-pointer border border-black rounded-full px-8 py-3 text-center font-lato1 text-[16px] font-semibold text-red dark:text-white transition-colors duration-200 ease-in-out gap-2"
+                          className="flex items-center cursor-pointer border border-black rounded-full px-8 py-3 text-center font-lato1 text-[16px] font-semibold text-red dark:text-white transition-colors duration-200 ease-in-out gap-2 dark:text-white-a700 "
                         >
                           <div className="flex items-center justify-center w-2 h-2 rounded-full border-2 border-green-900 bg-green-900">
                             <div className="w-3 h-3 rounded-full bg-white"></div>
@@ -134,13 +138,17 @@ export default function HomepagePage() {
             </div>
             <div className="flex flex-col gap-4 border border-solid border-gray-300_01 dark:border-dark-600 bg-white-a700 dark:bg-dark-700 py-1 h-[42vh]">
               <div className="mx-1 mt-3 flex flex-wrap items-center md:mx-0">
-                <Heading size="headinglg" as="h3" className="!font-lato1 dark:text-white-a700">
+                <Heading
+                  size="headinglg"
+                  as="h3"
+                  className="!font-lato1 dark:text-white-a700"
+                >
                   Alarms & Notifications
                 </Heading>
                 <Heading
                   size="headingxs"
                   as="h4"
-                  className="ml-1 flex h-[20px] w-[20px] items-center justify-center self-start rounded-[10px] bg-black-900 text-center !font-lato1 tracking-[0.13px] !text-white-a700 dark:bg-dark-800"
+                  className="ml-1 flex h-[20px] w-[20px] items-center justify-center self-start rounded-[10px] bg-black-900 text-center !font-lato1 tracking-[0.13px] !text-white-a700 dark:bg-dark-700"
                 >
                   {carData.length &&
                     carData.filter((car) => car.AlertLevel !== "None").length}

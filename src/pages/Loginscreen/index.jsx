@@ -20,8 +20,8 @@ export default function LoginscreenPage() {
           content="Web site created using create-react-app"
         />
       </Helmet>
-      <div className="relative h-[640px] w-full content-center bg-white-a700 dark:bg-dark-800 md:h-auto">
-        <div className="mx-auto flex flex-1 items-center md:flex-col">
+      <div className="relative h-[640px] w-full content-center bg-white-a700 dark:bg-dark-700 md:h-auto">
+        <div className="mx-auto flex flex-1 items-center md:flex-col bg-dark-700">
           <Img
             src="images/img_ellipse_2.png"
             alt="Image"

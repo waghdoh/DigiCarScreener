@@ -5,7 +5,7 @@ export default function Header({ ...props }) {
   return (
     <header
       {...props}
-      className={`${props.className} flex self-stretch items-center p-2 bg-white-a700 dark:bg-dark-800 shadow-xs`}
+      className={`${props.className} flex self-stretch items-center p-2 bg-white-a700 dark:bg-dark-700 shadow-xs`}
     >
       <div className="mx-auto flex w-full ml-2 mr-2 items-center justify-between gap-5 sm:flex-col">
         <Img
