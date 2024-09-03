@@ -13,7 +13,7 @@ const initialState = {
 const carsReducer = (state = initialState, action) => {
     switch (action.type) {
         case START_PATROL:
-            return { ...state, carData: carData };
+            return { ...state, carData: action.carData };
         case STOP_PATROL:
             return { ...state, carData: [] };
         default:
@@ -31,8 +31,9 @@ const store = configureStore({
 
 export default store;
 
-export const startPatrol = () => ({
+export const startPatrol = (payload) => ({
     type: START_PATROL,
+    carData:payload
 });
 
 export const stopPatrol = () => ({

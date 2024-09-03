@@ -58,7 +58,7 @@ const Slider = React.forwardRef(
         <AliceCarousel
           renderPrevButton={(props) => <CustomPrevButton {...props} />}
           renderNextButton={(props) => <CustomNextButton {...props} />}
-          items={slideItems}
+          items={items}
           // infinite
           ref={ref}
           {...props}
