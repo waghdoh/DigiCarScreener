@@ -26,9 +26,9 @@ export const carData = [
         "StateName": "New York",
         "DateTime": "2024-08-27T15:10:12",
         "GPSLocation": "40.712776, -74.005974",
-        "AlertLevel": "None",
+        "AlertLevel": "High",
         "Images": [
-            "images/img_image.png",
+            "images/red_image.png",
             "images/img_image.png",
         ]
     },
@@ -44,7 +44,7 @@ export const carData = [
         "GPSLocation": "29.760427, -95.369804",
         "AlertLevel": "None",
         "Images": [
-            "images/img_image.png",
+            "images/black_image.png",
             "images/img_image.png",
             "images/img_image.png",
             "images/img_image.png",
@@ -77,7 +77,7 @@ export const carData = [
         "GPSLocation": "25.761680, -80.191790",
         "AlertLevel": "High",
         "Images": [
-            "images/img_image.png",
+            "images/gray_image.png",
             "images/img_image.png",
         ]
     },
@@ -85,7 +85,7 @@ export const carData = [
         "CameraID": "Rear#7890L",
         "CarMake": "BMW",
         "CarModel": "X5",
-        "CarColor": "Silver",
+        "CarColor": "Green",
         "LicensePlate": "TUV1516",
         "State": "CA",
         "StateName": "California",
@@ -93,7 +93,7 @@ export const carData = [
         "GPSLocation": "36.778259, -119.417931",
         "AlertLevel": "None",
         "Images": [
-            "images/img_image.png",
+            "images/green_image.png",
             "images/img_image.png",
         ]
     },
@@ -109,7 +109,7 @@ export const carData = [
         "GPSLocation": "43.299428, -74.217933",
         "AlertLevel": "None",
         "Images": [
-            "images/img_image.png",
+            "images/white_image.png",
             "images/img_image.png",
         ]
     },
@@ -156,7 +156,7 @@ export const carData = [
         "StateName": "Florida",
         "DateTime": "2024-08-27T23:13:45",
         "GPSLocation": "27.994402, -81.760254",
-        "AlertLevel": "None",
+        "AlertLevel": "High",
         "Images": [
             "/images/img_group_115.png",
             "/images/img_group_115.png",
@@ -165,7 +165,7 @@ export const carData = [
 ]
 
 
-export const CAMERA_LIST = [{ value: 1, label: `Camera 1` },
-{ value: 2, label: `Camera 2` },
-{ value: 3, label: `Camera 3` },
-{ value: 4, label: `Camera 4` },]
+export const CAMERA_LIST = [{ value: 1, label: `Camera 1`, cameraId: 'Front#6528L', feed: 'images/video_image1.png' },
+{ value: 2, label: `Camera 2`, cameraId: 'Rear#7890L', feed: 'images/video_image4.png' },
+{ value: 3, label: `Camera 3`, cameraId: 'Rear#2534L', feed: 'images/video_image3.png' },
+{ value: 4, label: `Camera 4`, cameraId: 'Front#7865R', feed: 'images/video_image2.png' },]

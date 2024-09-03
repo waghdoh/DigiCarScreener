@@ -2,7 +2,7 @@ import React from "react";
 
 export default function GPSIcon() {
   return (
-    <div className="tooltip-container">
+    <div className="tooltip-container text-xs   whitespace-nowrap">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -12,7 +12,7 @@ export default function GPSIcon() {
         version="1.1"
         id="Capa_1"
         viewBox="0 0 297 297"
-        xmlSpace="preserve"
+        // xmlSpace="preserve"
         className="hover-svg"
       >
         <g>

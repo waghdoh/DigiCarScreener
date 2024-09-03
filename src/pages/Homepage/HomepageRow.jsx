@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Text, Heading } from "../../components";
 import { useDispatch } from "react-redux";
 import { stopPatrol, startPatrol } from "store";
-import GPSIcon from "components/GPS";
+import GPSIcon from "components/GPS-top";
 import CaptureSlider from "./CaptureSlider";
 import { carData } from "MockData/carsData";
 
@@ -51,7 +51,7 @@ export default function HomepageRow(props) {
           </Heading>
           <button
             onClick={togglePatrol}
-            className="flex items-center gap-2.5 border border-solid border-black-900 p-2 w-[160px] dark:border-dark-600 p-2 bg-white-a700 dark:bg-dark-700"
+            className="flex items-center gap-2.5 border border-solid border-black-900 p-2 w-[160px] dark:border-dark-600  bg-white-a700 "
           >
             <img
               src={
@@ -62,7 +62,7 @@ export default function HomepageRow(props) {
               alt={isPatrolStarted ? "Iconpause" : "Iconplay"}
               className="h-[24px] w-[24px]"
             />
-            <h2 className="!font-lato1 uppercase tracking-[-0.27px] text-black-900 dark:text-white-a700">
+            <h2 className="!font-lato1 uppercase tracking-[-0.27px]">
               {isPatrolStarted ? "Stop Patrol" : "Start Patrol"}
             </h2>
           </button>
@@ -75,7 +75,10 @@ export default function HomepageRow(props) {
             >
               Camera ID
             </Heading>
-            <Text as="p" className="text-black-900   whitespace-nowrap">
+            <Text
+              as="p"
+              className="text-black-900 dark:text-black-900   whitespace-nowrap"
+            >
               {latestCaptureData?.CameraID || "--"}
             </Text>
           </div>
@@ -86,7 +89,10 @@ export default function HomepageRow(props) {
             >
               License No/State
             </Heading>
-            <Text as="p" className="text-black-900  whitespace-nowrap">
+            <Text
+              as="p"
+              className="text-black-900 dark:text-black-900   whitespace-nowrap"
+            >
               {latestCaptureData?.LicensePlate && latestCaptureData?.State
                 ? latestCaptureData?.LicensePlate +
                   "/" +
@@ -101,7 +107,10 @@ export default function HomepageRow(props) {
             >
               Make/Model/Color
             </Heading>
-            <Text as="p" className="text-black-900  whitespace-nowrap">
+            <Text
+              as="p"
+              className="text-black-900  dark:text-black-900  whitespace-nowrap"
+            >
               {latestCaptureData?.CarModel &&
               latestCaptureData?.CarMake &&
               latestCaptureData?.CarColor
@@ -122,7 +131,7 @@ export default function HomepageRow(props) {
             </Heading>
             {latestCaptureData ? (
               <div className="flex">
-                <Text className="text-black-900  whitespace-nowrap">
+                <Text className="text-black-900 dark:text-black-900  whitespace-nowrap">
                   {formatDate(latestCaptureData?.DateTime)}
                 </Text>
                 <GPSIcon />
@@ -135,7 +144,7 @@ export default function HomepageRow(props) {
         {latestCaptureData ? (
           <CaptureSlider dataArray={latestCaptureData.Images} />
         ) : (
-          <div className="flex items-center justify-center dark:text-white-a700">
+          <div className="flex h-[20vh] items-center justify-center dark:text-white-a700">
             No data Captured! Start Patroling.
           </div>
         )}

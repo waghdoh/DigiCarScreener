@@ -8,8 +8,6 @@ import HomepageRowNine from "./HomepageRowNine";
 import { CAMERA_LIST } from "MockData/carsData";
 import { useSelector } from "react-redux";
 
-const ViewDirection = ["Front", "Back", "Right", "Left"];
-
 export default function HomepagePage() {
   const carData = useSelector((state) => {
     return state.cars.carData;
@@ -30,11 +28,6 @@ export default function HomepagePage() {
       document.documentElement.classList.remove("dark");
     }
   }, [isDarkMode]);
-
-  const handleDarkModeToggle = (val) => {
-    setIsDarkMode(val);
-    localStorage.setItem("darkMode", val); // Save preference
-  };
 
   return (
     <div>
@@ -66,7 +59,7 @@ export default function HomepagePage() {
                 className="mt-2 !font-lato1 dark:text-white-a700"
               >
                 Live View - Camera {selectedChipOptions} (
-                {ViewDirection[selectedChipOptions - 1]}#6528)
+                {chipOptions[selectedChipOptions - 1]?.cameraId})
               </Heading>
               <div className="flex gap-1 self-stretch sm:flex-col">
                 <ChipView
@@ -102,19 +95,20 @@ export default function HomepagePage() {
                     </React.Fragment>
                   )}
                 </ChipView>
-                <Img
+                {/* <Img
                   src="images/img_conf.svg"
                   alt="Conf"
                   className="h-[46px] w-[36px] sm:w-full"
-                />
+                /> */}
               </div>
+
               <div className=" h-[230px] content-center self-stretch md:h-auto">
                 <Img
-                  src="images/img_image_178x404.png"
+                  src={chipOptions[selectedChipOptions - 1]?.feed}
                   alt="Image"
                   className="mx-auto h-[230px] w-full flex-1 object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 top-0 mx-1 my-auto flex h-max flex-1 flex-col items-end gap-[60px] md:mx-0 sm:gap-[30px]">
+                <div className="relative bottom-0 left-0 right-3 top-[-220px] mx-1 my-auto flex h-max flex-1 flex-col items-end gap-[60px] md:mx-0 sm:gap-[30px]">
                   <Button className="flex h-[32px] w-[32px] items-center justify-center border border-solid border-black-900 bg-white-a700  px-1">
                     <Img src="images/img_icon_hand.svg" />
                   </Button>
@@ -136,8 +130,8 @@ export default function HomepagePage() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-4 border border-solid border-gray-300_01 dark:border-dark-600 bg-white-a700 dark:bg-dark-700 py-1 h-[42vh]">
-              <div className="mx-1 mt-3 flex flex-wrap items-center md:mx-0">
+            <div className="p-4 flex flex-col gap-4 border border-solid border-gray-300_01 dark:border-dark-600 bg-white-a700 dark:bg-dark-700 py-1 h-[42vh]">
+              <div className=" mt-3 flex flex-wrap items-center md:mx-0">
                 <Heading
                   size="headinglg"
                   as="h3"
@@ -154,35 +148,39 @@ export default function HomepagePage() {
                     carData.filter((car) => car.AlertLevel !== "None").length}
                 </Heading>
               </div>
-              <div className="ml-1 flex flex-col items-end gap-1 md:ml-0">
-                <div className="relative h-[156px] self-stretch">
-                  <div className="absolute bottom-0 left-0 right-0 top-0 my-auto ml-auto mr-1.5 flex flex-1 flex-col gap-2 border-solid border-gray-300_01 dark:border-dark-600 md:relative md:mr-0">
-                    <Suspense fallback={<div>Loading feed...</div>}>
-                      {carData.map((d, index) => (
-                        <UserProfile
-                          {...d}
-                          key={"homepage" + index}
-                          className="mr-4 md:mr-0 sm:flex-col"
-                        />
-                      ))}
-                    </Suspense>
+              {carData.length > 0 ? (
+                <div className="ml-1 flex flex-col items-end gap-1 md:ml-0">
+                  <div className="relative h-[156px] self-stretch">
+                    <div className="absolute bottom-0 left-0 right-0 top-0 my-auto ml-auto mr-1.5 flex flex-1 flex-col gap-2 border-solid border-gray-300_01 dark:border-dark-600 md:relative md:mr-0">
+                      <Suspense fallback={<div>Loading feed...</div>}>
+                        {carData.map((d, index) => (
+                          <UserProfile
+                            {...d}
+                            key={"homepage" + index}
+                            className="mr-4 md:mr-0 sm:flex-col"
+                          />
+                        ))}
+                      </Suspense>
+                    </div>
                   </div>
                 </div>
-                <div className="tooltip-container">
-                  <Button
-                    leftIcon={
-                      <Img
-                        src="images/img_fi10273571.svg"
-                        alt="Fi 10273571"
-                        className="h-[32px] w-[32px]"
-                      />
-                    }
-                    className="fixed bottom-4 right-4 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-solid border-black-900 dark:border-dark-700 bg-gradient text-[14px] text-black-900 dark:text-white hover-svg"
-                  >
-                    {/* You can remove or keep the left icon depending on the design */}
-                  </Button>
-                  <div className="tooltip-text">Ask Me!</div>
+              ) : (
+                <div className="flex h-[20vh] items-center justify-center dark:text-white-a700">
+                  No data available.
                 </div>
+              )}
+              <div className="tooltip-container">
+                <Button
+                  leftIcon={
+                    <Img src="images/img_fi10273571.svg" alt="Fi 10273571" />
+                  }
+                  className="fixed bottom-4 right-4 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-solid border-black-900 dark:border-dark-700 bg-gradient text-[14px] text-black-900 dark:text-white"
+                >
+                  <div className="tooltip-text whitespace-nowrap ">
+                    <span className="m-2">Ask Me!</span>
+                  </div>
+                  {/* You can remove or keep the left icon depending on the design */}
+                </Button>
               </div>
             </div>
           </div>
