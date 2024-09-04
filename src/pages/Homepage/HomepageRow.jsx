@@ -24,18 +24,23 @@ export default function HomepageRow(props) {
 
     socket.onmessage = (event) => {
       console.log("Message from server:", event.data);
-      setCarDataFromSocket(event.data);
+      const incomingData = JSON.parse(event.data);
+      carDataFromSocket.push(incomingData);
+      console.log("newData", carDataFromSocket);
+      // setCarDataFromSocket(carDataFromSocket);
+      dispatch(startPatrol(carDataFromSocket));
     };
-
     setWs(socket);
-
     return () => {
       socket.close();
     };
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(startPatrol(carDataFromSocket));
+  }, [carDataFromSocket]);
+
   const togglePatrol = () => {
-    dispatch(isPatrolStarted ? stopPatrol() : startPatrol(carDataFromSocket));
     setIsPatrolStarted(!isPatrolStarted);
   };
   return (

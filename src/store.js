@@ -1,4 +1,3 @@
-// store.js
 import { configureStore } from '@reduxjs/toolkit';
 import { carData } from 'MockData/carsData';
 
@@ -11,11 +10,18 @@ const initialState = {
 };
 
 const carsReducer = (state = initialState, action) => {
+    console.log('action', action)
     switch (action.type) {
         case START_PATROL:
-            return { ...state, carData: action.carData };
+            return {
+                ...state,
+                carData: action.payload,
+            };
         case STOP_PATROL:
-            return { ...state, carData: [] };
+            return {
+                ...state,
+                carData: [],
+            };
         default:
             return state;
     }
@@ -33,7 +39,7 @@ export default store;
 
 export const startPatrol = (payload) => ({
     type: START_PATROL,
-    carData:payload
+    payload,
 });
 
 export const stopPatrol = () => ({
