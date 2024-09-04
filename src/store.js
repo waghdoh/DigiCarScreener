@@ -15,7 +15,7 @@ const carsReducer = (state = initialState, action) => {
         case START_PATROL:
             return {
                 ...state,
-                carData: action.payload,
+                carData: [...state.carData, action.payload],
             };
         case STOP_PATROL:
             return {
