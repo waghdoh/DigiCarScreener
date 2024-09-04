@@ -15,10 +15,6 @@ export default function HomepageRow(props) {
 
   const dispatch = useDispatch();
 
-  const carDataInStore = useSelector((state) => {
-    return state.cars.carData;
-  });
-
   useEffect(() => {
     const socket = new WebSocket("ws://localhost:3001");
 
@@ -29,6 +25,9 @@ export default function HomepageRow(props) {
     socket.onmessage = (event) => {
       console.log("Message from server:", event.data);
       const incomingData = JSON.parse(event.data);
+      const carDataInStore = useSelector((state) => {
+        return state.cars.carData;
+      });
       const newData = [...carDataInStore, incomingData];
       console.log("newData", newData);
       dispatch(startPatrol(newData));
