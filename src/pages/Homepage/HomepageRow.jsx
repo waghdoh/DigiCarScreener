@@ -27,8 +27,8 @@ export default function HomepageRow(props) {
       const incomingData = JSON.parse(event.data);
       carDataFromSocket.push(incomingData);
       console.log("newData", carDataFromSocket);
-      // setCarDataFromSocket(carDataFromSocket);
-      dispatch(startPatrol(carDataFromSocket));
+      setCarDataFromSocket(carDataFromSocket);
+      // dispatch(startPatrol(carDataFromSocket));
     };
     setWs(socket);
     return () => {
