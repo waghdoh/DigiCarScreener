@@ -1,7 +1,7 @@
 import { formatDate } from "util/NumberFormatters";
 import React, { useState, useEffect } from "react";
 import { Text, Heading } from "../../components";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { stopPatrol, startPatrol } from "store";
 import GPSIcon from "components/GPS-top";
 import CaptureSlider from "./CaptureSlider";
@@ -15,6 +15,10 @@ export default function HomepageRow(props) {
 
   const dispatch = useDispatch();
 
+  const carDataInStore = useSelector((state) => {
+    return state.cars.carData;
+  });
+
   useEffect(() => {
     const socket = new WebSocket("ws://localhost:3001");
 
@@ -25,10 +29,9 @@ export default function HomepageRow(props) {
     socket.onmessage = (event) => {
       console.log("Message from server:", event.data);
       const incomingData = JSON.parse(event.data);
-      carDataFromSocket.push(incomingData);
-      console.log("newData", carDataFromSocket);
-      setCarDataFromSocket(carDataFromSocket);
-      // dispatch(startPatrol(carDataFromSocket));
+      const newData = [...carDataInStore, incomingData];
+      console.log("newData", newData);
+      dispatch(startPatrol(newData));
     };
     setWs(socket);
     return () => {
@@ -36,9 +39,9 @@ export default function HomepageRow(props) {
     };
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(startPatrol(carDataFromSocket));
-  }, [carDataFromSocket]);
+  // useEffect(() => {
+  //   dispatch(startPatrol(carDataFromSocket));
+  // }, [carDataFromSocket]);
 
   const togglePatrol = () => {
     setIsPatrolStarted(!isPatrolStarted);
