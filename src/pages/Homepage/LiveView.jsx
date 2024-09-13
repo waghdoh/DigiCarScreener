@@ -1,3 +1,4 @@
+import React from 'react'
 import React, { Suspense } from "react";
 import { Helmet } from "react-helmet";
 import { Button, Img, Heading, ChipView } from "../../components";
@@ -7,52 +8,10 @@ import HomepageRow from "./HomepageRow";
 import HomepageRowNine from "./HomepageRowNine";
 import { CAMERA_LIST } from "MockData/carsData";
 import { useSelector } from "react-redux";
-
-export default function HomepagePage() {
-  const carData = useSelector((state) => {
-    return state.cars.carData;
-  });
-  const newCarData = [...carData];
-  const [chipOptions, setChipOptions] = React.useState(() => CAMERA_LIST);
-  const [selectedChipOptions, setSelectedChipOptions] = React.useState([1]);
-
-  const [isDarkMode, setIsDarkMode] = React.useState(() => {
-    return localStorage.getItem("darkMode") === "true";
-  });
-
-  // Effect to handle class addition/removal
-  React.useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkMode]);
-
+import { AlarmNotification } from "./AlarmNotification";
+export const LiveView = () => {
   return (
-    <div>
-      <Helmet>
-        <title>Home page</title>
-        <meta
-          name="description"
-          content="Web site created using create-react-app"
-        />
-      </Helmet>
-      <div className="flex w-full flex-col items-center gap-1 bg-blue_gray-50 dark:bg-black-900">
-        {" "}
-        {/* Ensure the background color is also set for dark mode */}
-        <Header />
-        {/* Add Switch for Dark Mode */}
-        {/* <div className="flex w-full justify-end p-4">
-          <Switch value={isDarkMode} onChange={handleDarkModeToggle} />
-        </div> */}
-        <div className="mx-auto mb-1.5 flex w-full gap-1 self-stretch md:flex-col md:px-5">
-          <div className="flex w-[50%] flex-col gap-1 md:w-full">
-            <HomepageRow carData={newCarData.pop()} />
-            <HomepageRowNine />
-          </div>
-          <div className="flex w-[50%] flex-col gap-1 md:w-full">
-            {/* <div className="flex flex-col items-start gap-3 border border-solid border-gray-300_01 bg-white-a700 dark:bg-dark-700 p-2.5">
+    <div className="flex flex-col items-start gap-3 border border-solid border-gray-300_01 bg-white-a700 dark:bg-dark-700 p-2.5">
               <Heading
                 size="headinglg"
                 as="h2"
@@ -100,11 +59,6 @@ export default function HomepagePage() {
                   alt="Conf"
                   className="h-[46px] w-[36px] sm:w-full"
                 /> */}
-             
-             
-              {/* 
-              
-              
               </div>
 
               <div className=" h-[230px] content-center self-stretch md:h-auto">
@@ -134,33 +88,6 @@ export default function HomepagePage() {
                   </div>
                 </div>
               </div>
-            </div> */} 
-
-
-
-
-            
-            {/* <div className="p-4 flex flex-col gap-4 border border-solid border-gray-300_01 dark:border-dark-600 bg-white-a700 dark:bg-dark-700 py-1 h-[42vh]"> */}
-           
-
-
-              <div className="tooltip-container">
-                <Button
-                  leftIcon={
-                    <Img src="images/img_fi10273571.svg" alt="Fi 10273571" />
-                  }
-                  className="fixed bottom-4 right-4 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-solid border-black-900 dark:border-dark-700 bg-gradient text-[14px] text-black-900 dark:text-white"
-                >
-                  <div className="tooltip-text whitespace-nowrap ">
-                    <span className="m-2">Ask Me!</span>
-                  </div>
-                  {/* You can remove or keep the left icon depending on the design */}
-                </Button>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    // </div>
-  );
+  )
 }

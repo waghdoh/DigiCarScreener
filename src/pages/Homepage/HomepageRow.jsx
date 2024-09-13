@@ -6,6 +6,8 @@ import { stopPatrol, startPatrol } from "store";
 import GPSIcon from "components/GPS-top";
 import CaptureSlider from "./CaptureSlider";
 import { carData } from "MockData/carsData";
+import { AlarmNotification } from "./AlarmNotification";
+
 
 export default function HomepageRow(props) {
   const latestCaptureData = props.carData;
@@ -42,7 +44,7 @@ export default function HomepageRow(props) {
   };
   return (
     <div>
-      <div className="flex flex-col gap-1.5 border border-solid border-gray-300_01 bg-white-a700 p-2.5 dark:bg-dark-700 dark:border-dark-600">
+      <div className="w-[84rem] flex flex-col gap-1.5 border border-solid  bg-white-a700 p-2.5 dark:bg-dark-700 dark:border-dark-600">
         <div className="flex items-center justify-between gap-5">
           <Heading
             size="headinglg"
@@ -65,11 +67,66 @@ export default function HomepageRow(props) {
               className="h-[24px] w-[24px]"
             />
             <h2 className="!font-lato1 uppercase tracking-[-0.27px]">
-              {isPatrolStarted ? "Stop Patrol" : "Start Patrol"}
+              {/* {isPatrolStarted ? "Stop Patrol" : "Start Patrol"} */}
+              START
             </h2>
           </button>
+
+          <button
+            onClick={togglePatrol}
+            className="flex items-center gap-2.5 border border-solid border-black-900 p-2 w-[160px] dark:border-dark-600  bg-white-a700 "
+          >
+            <img
+              src={
+                isPatrolStarted
+                  ? "images/img_icon_pause.svg"
+                  : "images/play.png"
+              }
+              alt={isPatrolStarted ? "Iconpause" : "Iconplay"}
+              className="h-[24px] w-[24px]"
+            />
+            <h2 className="!font-lato1 uppercase tracking-[-0.27px]">
+              {/* {isPatrolStarted ? "Stop Patrol" : "Start Patrol"} */}
+              STOP
+            </h2>
+          </button>
+
+          <button
+            onClick={togglePatrol}
+            className="flex items-center gap-2.5 border border-solid border-black-900 p-2 w-[160px] dark:border-dark-600  bg-white-a700 "
+          >
+            <img
+              src={
+                isPatrolStarted
+                  ? "images/img_icon_pause.svg"
+                  : "images/play.png"
+              }
+              alt={isPatrolStarted ? "Iconpause" : "Iconplay"}
+              className="h-[24px] w-[24px]"
+            />
+            <h2 className="!font-lato1 uppercase tracking-[-0.27px]">
+              {/* {isPatrolStarted ? "Stop Patrol" : "Start Patrol"} */}
+
+              ALERT
+            </h2>
+          </button>
+
+
+          
+
+
+          {/* <AlarmNotification /> */}
+                         
+                      
+                   
+
+
+
+
+          
         </div>
-        <div className="flex justify-between gap-4 bg-gradient px-5 py-1 md:flex-col">
+        <AlarmNotification />
+        <div className=" mt-5 flex justify-between gap-4 bg-gradient px-5 py-1 md:flex-col">
           <div className="flex flex-col items-start gap-1">
             <Heading
               as="p"

@@ -123,7 +123,7 @@ export default function HomepageRowNine() {
 
   return (
     <div>
-      <div className="flex flex-col gap-2.5 border border-solid border-gray-300_01 bg-white-a700 dark:bg-dark-700 dark:border-dark-600">
+      <div className="w-[84rem] flex flex-col gap-2.5 border border-solid border-gray-300_01 bg-white-a700 dark:bg-dark-700 dark:border-dark-600">
         <div className="ml-2.5 flex items-center justify-center md:ml-0 sm:flex-col">
           <Heading
             size="headinglg"
@@ -184,7 +184,7 @@ export default function HomepageRowNine() {
             columns={tableColumns}
             data={carData}
           />
-        </div>
+        </div>        
       </div>
     </div>
   );
