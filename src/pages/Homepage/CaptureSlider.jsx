@@ -21,7 +21,13 @@ export default function CaptureSlider({ dataArray }) {
           }}
           ref={sliderRef}
           items={dataArray.map((carImage, index) => {
-            return <img src={carImage} alt="" style={{ width: "100%" }} />;
+            return (
+              <img
+                src={carImage}
+                alt=""
+                style={{ width: "40%", height: "50%" }}
+              />
+            );
           })}
         />
       </div>

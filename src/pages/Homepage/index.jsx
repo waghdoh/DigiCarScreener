@@ -48,7 +48,7 @@ export default function HomepagePage() {
         </div> */}
         <div className="mx-auto mb-1.5 flex w-full gap-1 self-stretch md:flex-col md:px-5">
           <div className="flex w-[50%] flex-col gap-1 md:w-full">
-            <HomepageRow carData={newCarData.pop()} />
+            <HomepageRow carData={newCarData[0]} />
             <HomepageRowNine />
           </div>
           <div className="flex w-[50%] flex-col gap-1 md:w-full">

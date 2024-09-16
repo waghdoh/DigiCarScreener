@@ -18,7 +18,7 @@ export const formatDate = (dateStr) => {
 };
 
 export const formatGPSLocation = (latLongs) => {
-  console.log(latLongs, "lat");
+  //console.log(latLongs, "lat");
   let formattedCoordinates = "";
   if (latLongs) {
     const [lat, lng] = latLongs

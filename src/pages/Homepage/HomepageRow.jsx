@@ -17,13 +17,14 @@ export default function HomepageRow(props) {
 
   useEffect(() => {
     const socket = new WebSocket("ws://localhost:3001");
+    //const socket = new WebSocket("ws://10.1.10.22:3001");
 
     socket.onopen = () => {
       console.log("WebSocket connection established");
     };
 
     socket.onmessage = (event) => {
-      console.log("Message from server:", event.data);
+      //console.log("Message from server:", event.data);
       const incomingData = JSON.parse(event.data);
       dispatch(startPatrol(incomingData));
     };

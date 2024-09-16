@@ -39,7 +39,7 @@ export default function HomepageRowNine() {
               as="h4"
               className="flex justify-center items-center font-bold border-r w-fill-available border-solid border-gray-300_01 bg-gray-100 pl-2.5 pr-1"
             >
-              Camera ID
+              Thumbnail
             </Heading>
           </div>
         ),
@@ -54,6 +54,8 @@ export default function HomepageRowNine() {
               {LicensePlate}
               <br />
               {StateName}
+              <br />
+              {"POS:" + info?.row?.original?.Orientation}
             </Text>
           );
         },
@@ -70,14 +72,15 @@ export default function HomepageRowNine() {
 
       tableColumnHelper.accessor("CarMake", {
         cell: (info) => {
-          const { CarMake, CarModel, CarColor } = info.row.original;
+          const { CarMake, CarModel, CarColor, BodyType, CarYear } =
+            info.row.original;
           return (
             <Text className="flex justify-center text-center ">
-              {CarMake}
+              {CarMake}/{CarModel}
               <br />
-              {CarModel}
+              {BodyType}
               <br />
-              {CarColor}
+              {CarColor}/{CarYear}
             </Text>
           );
         },

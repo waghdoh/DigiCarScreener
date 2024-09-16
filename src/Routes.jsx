@@ -5,6 +5,8 @@ import NotFound from "pages/NotFound";
 import Homepage from "pages/Homepage";
 import LoginscreenPage from "pages/Loginscreen";
 import SplashscreenRow from "pages/Splashscreen/SplashscreenRow";
+import PlatesList from "pages/PlatesList";
+
 const ProjectRoutes = () => {
   let element = useRoutes([
     { path: "/", element: <SplashscreenRow /> },
@@ -16,6 +18,11 @@ const ProjectRoutes = () => {
     {
       path: "homepage",
       element: <Homepage />,
+    },
+    {
+      path: "list",
+      element: <PlatesList />,
+      //element:<PredefinedList />
     },
   ]);
 
