@@ -1,13 +1,13 @@
 import { CAMERA_LIST } from "MockData/carsData";
-import { Text, Img, Button, Heading, SelectBox, Input } from "../../components";
-import { ReactTable } from "../../components/ReactTable";
+import { Text, Img, Button, Heading, SelectBox, Input } from ".";
+import { ReactTable } from "./ReactTable";
 import { createColumnHelper } from "@tanstack/react-table";
 import React from "react";
 import { formatDate, formatGPSLocation } from "util/NumberFormatters";
 import { useSelector } from "react-redux";
 import GPSIcon from "components/GPS";
 
-export default function HomepageRowNine() {
+export default function ScanningTable() {
   const carData = useSelector((state) => {
     return state.cars.carData;
   });

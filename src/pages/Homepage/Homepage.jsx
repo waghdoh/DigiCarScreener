@@ -4,10 +4,10 @@ import { Text, Heading } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { stopPatrol, startPatrol } from "store";
 import GPSIcon from "components/GPS-top";
-import CaptureSlider from "./CaptureSlider";
+import CaptureSlider from "../../components/CaptureSlider";
 import { carData } from "MockData/carsData";
 
-export default function HomepageRow(props) {
+export default function Homepage(props) {
   const latestCaptureData = props.carData;
   const [isPatrolStarted, setIsPatrolStarted] = useState(false);
   const [carDataFromSocket, setCarDataFromSocket] = useState([]);

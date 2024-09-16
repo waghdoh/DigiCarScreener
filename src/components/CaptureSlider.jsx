@@ -1,5 +1,5 @@
 import React from "react";
-import { Slider } from "../../components";
+import { Slider } from ".";
 
 export default function CaptureSlider({ dataArray }) {
   const [sliderState, setSliderState] = React.useState(0);
